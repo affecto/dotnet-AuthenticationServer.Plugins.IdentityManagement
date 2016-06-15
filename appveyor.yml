@@ -1,0 +1,28 @@
+install:
+- cmd: Scripts\patch-version.cmd
+- ps: if ($env:APPVEYOR_REPO_BRANCH -eq "master" -Or $env:APPVEYOR_REPO_BRANCH -eq "development" -Or $env:APPVEYOR_REPO_BRANCH.StartsWith("release") -Or $env:APPVEYOR_REPO_BRANCH.StartsWith("hotfix")) { $env:RunOctoPack="true" }
+
+assembly_info:
+  patch: true
+  file: 'Source\AuthenticationServer.Plugins.IdentityManagement\Properties\AssemblyInfo.cs'
+  assembly_version: $(CUSTOM_VERSION)
+  assembly_file_version: $(CUSTOM_VERSION)
+  assembly_informational_version: $(CUSTOM_INFORMATIONAL_VERSION)
+
+before_build:
+- cmd: nuget restore "Source\AuthenticationServer.Plugins.IdentityManagement.sln"
+
+build:
+  verbosity: minimal
+
+configuration: Release
+
+pull_requests:
+  do_not_increment_build_number: true
+
+nuget:
+  disable_publish_on_pr: true
+
+artifacts:
+  - path: 'Source\AuthenticationServer.Plugins.IdentityManagement\obj\octopacked\AuthenticationServer.Plugins.IdentityManagement.*.nupkg'
+    name: Authentication Server Identity Management Plugin OctoPack
