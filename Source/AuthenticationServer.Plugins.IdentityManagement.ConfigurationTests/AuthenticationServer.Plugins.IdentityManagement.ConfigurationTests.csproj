@@ -37,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Affecto.AuthenticationServer.Plugins.Infrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Affecto.AuthenticationServer.Plugins.Infrastructure.1.0.0-prerelease03\lib\net461\Affecto.AuthenticationServer.Plugins.Infrastructure.dll</HintPath>
+      <HintPath>..\packages\Affecto.AuthenticationServer.Plugins.Infrastructure.1.0.0\lib\net461\Affecto.AuthenticationServer.Plugins.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Affecto.Testing.Configuration, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
