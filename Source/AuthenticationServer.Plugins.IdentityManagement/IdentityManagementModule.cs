@@ -4,12 +4,13 @@ using System.Linq;
 using Affecto.AuditTrail.Interfaces;
 using Affecto.AuditTrail.Interfaces.Model;
 using Affecto.AuthenticationServer.Plugins.IdentityManagement.Configuration;
+using Affecto.AuthenticationServer.Plugins.Infrastructure;
 using Autofac;
 using IdentityServer3.Core.Services;
 
 namespace Affecto.AuthenticationServer.Plugins.IdentityManagement
 {
-    public class IdentityManagementModule : Module
+    public class IdentityManagementModule : FederatedAuthenticationPluginModule
     {
         protected override void Load(ContainerBuilder builder)
         {

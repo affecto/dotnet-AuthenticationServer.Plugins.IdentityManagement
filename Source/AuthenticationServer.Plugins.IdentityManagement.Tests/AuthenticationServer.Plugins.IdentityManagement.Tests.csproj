@@ -45,11 +45,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Affecto.AuthenticationServer.Plugins.Infrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Affecto.AuthenticationServer.Plugins.Infrastructure.1.0.0-prerelease02\lib\net461\Affecto.AuthenticationServer.Plugins.Infrastructure.dll</HintPath>
+      <HintPath>..\packages\Affecto.AuthenticationServer.Plugins.Infrastructure.1.0.0-prerelease03\lib\net461\Affecto.AuthenticationServer.Plugins.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Affecto.IdentityManagement.Interfaces, Version=9.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Affecto.IdentityManagement.Interfaces.9.2.0\lib\net451\Affecto.IdentityManagement.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="IdentityServer3, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
