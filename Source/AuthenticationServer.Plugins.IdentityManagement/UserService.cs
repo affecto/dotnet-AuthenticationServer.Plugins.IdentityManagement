@@ -12,7 +12,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Affecto.AuthenticationServer.Plugins.IdentityManagement
 {
-    internal class UserService : UserServiceBase
+    internal class UserService : FederatedAuthenticationUserServiceBase
     {
         private readonly IUserService userService;
         private readonly Lazy<IIdentityManagementConfiguration> identityManagementConfiguration;
@@ -34,19 +34,19 @@ namespace Affecto.AuthenticationServer.Plugins.IdentityManagement
             this.identityManagementConfiguration = identityManagementConfiguration;
         }
 
-        protected override void CreateOrUpdateExternallyAuthenticatedUser(string accountName, string displayName, IEnumerable<string> groups)
+        protected override void CreateOrUpdateExternallyAuthenticatedUser(string userAccountName, string userDisplayName, IReadOnlyCollection<string> groups)
         {
-            if (!userService.IsExistingUserAccount(accountName, AccountType.Federated))
+            if (!userService.IsExistingUserAccount(userAccountName, AccountType.Federated))
             {
                 if (identityManagementConfiguration.Value.AutoCreateUser)
                 {
                     IEnumerable<KeyValuePair<string, string>> customProperties = CreateCustomProperties();
-                    userService.AddUser(accountName, AccountType.Federated, displayName, groups, customProperties);
+                    userService.AddUser(userAccountName, AccountType.Federated, userDisplayName, groups, customProperties);
                 }
             }
             else
             {
-                userService.UpdateUserGroupsAndRoles(accountName, AccountType.Federated, groups);
+                userService.UpdateUserGroupsAndRoles(userAccountName, AccountType.Federated, groups);
             }
         }
 
